@@ -1,13 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>docente</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">docente</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button (click)="botonQR()">Código QR</ion-button>
+  <ion-button (click)="botonAsistencia()">Lista de asistencia</ion-button>
 </ion-content>
+
+<ion-footer>Joan Amaya - Javier Hurtado - 2023</ion-footer>

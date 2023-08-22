@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-docente',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocentePage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+
+  botonQR(){
+    this.router.navigateByUrl("/codigo");
+  }
+
+  botonAsistencia(){
+    this.router.navigateByUrl("/asistencia");
   }
 
 }
