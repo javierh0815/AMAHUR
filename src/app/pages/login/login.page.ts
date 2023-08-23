@@ -13,7 +13,5 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  botonDocente(){
-    this.router.navigateByUrl("/docente");
-  }
+  
 }
