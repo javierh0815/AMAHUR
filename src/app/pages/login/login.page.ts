@@ -13,5 +13,12 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  botonIngresar(){
+
+  }
+
+  botonRecuperar(){
+    this.router.navigateByUrl("/recuperar");
+  }
   
 }
