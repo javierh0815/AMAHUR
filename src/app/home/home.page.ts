@@ -13,4 +13,8 @@ export class HomePage {
   botonLogin(){
     this.router.navigateByUrl("/login");
   }
+
+  botonCrearUsuario(){
+    this.router.navigateByUrl("/crear-usuario");
+  }
 }

@@ -3,11 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>login</ion-title>
+    <ion-title>crearUsuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <h2>Registro de usuario estudiante</h2>
   <ion-card>
     <ion-list>
       <ion-item>
@@ -19,9 +20,7 @@
         <ion-input type="password"></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button>Ingresar</ion-button>
-    <ion-button (click)="botonRecuperar()">Recuperar</ion-button>
+    <ion-button (click)="botonUsuarioCreado()">Crear Usuario</ion-button>
+    
   </ion-card>
 </ion-content>
-
-<ion-footer>Joan Amaya - Javier Hurtado - 2023</ion-footer>
