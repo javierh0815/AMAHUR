@@ -26,33 +26,61 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 :root {
-	--ion-toolbar-background: #0d1145;
+	--ion-toolbar-background: #46325D;
 }
 
-ion-title{
-    color: aliceblue;
+.header-normal{
+    background-color: #46325D;
+    --color: white;
+    --min-height: 80px;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    
+    
 }
-ion-content h2{
+
+/* ion-content h2{
     padding-left: 7px;
 }
 ion-card h3{
     padding: 7px;
 
-}
-ion-button{
+} */
+
+.button-normal{
     margin-left: 16px;
-    padding: 5px;
-    --background:#46188c ;
-    --background-activated: #6a26cf;
-    --background-hover: #6a26cf;
-}
-ion-item{
-    --ion-item-background: #fff;
-}
-ion-card{
-    background-color: white;
+    padding: 4px;
+    --background:#AC8BEE;
+    --background-hover: #573D7F;
+    --background-activated: #573D7F;
+    --color:white;
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    
 }
 
-ion-footer{
-    background-color: rgb(16, 50, 79);
+.buttons-normal{
+    --color:white;
+}
+
+
+.item-normal{
+    --ion-item-background: #fff;
+}
+
+.card-normal{
+    background-color: white;
+    --color:black;
+}
+
+.list-normal{
+    background-color: white;
+    --color:black;
+}
+
+.footer-normal{
+    background-color: #46325D;
+    --color: white;
+    --min-height: 80px;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
 }

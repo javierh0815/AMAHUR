@@ -1,26 +1,27 @@
-<ion-header [translucent]="true">
+<ion-header class [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button class="buttons-normal"></ion-back-button>
     </ion-buttons>
-    <ion-title>Creacion de Usuario</ion-title>
+    <ion-title class="header-normal">Creación de Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h2>Registro de usuario estudiante</h2>
-  <ion-card>
-    <ion-list>
-      <ion-item>
+  
+  <ion-card class="card-normal">
+    <h2>Registro de usuario estudiante</h2>
+    <ion-list class="list-normal">
+      <ion-item class="item-normal">
         <ion-label>Nombre:</ion-label>
         <ion-input type="text"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="item-normal">
         <ion-label>Contraseña:</ion-label>
         <ion-input type="password"></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button (click)="botonUsuarioCreado()">Crear Usuario</ion-button>
+    <ion-button class="button-normal" (click)="botonUsuarioCreado()">Crear Usuario</ion-button>
     
   </ion-card>
 </ion-content>
