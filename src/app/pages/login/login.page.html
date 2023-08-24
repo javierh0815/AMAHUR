@@ -1,27 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button class="buttons-normal"></ion-back-button>
     </ion-buttons>
-    <ion-title>Inicio de Sesion</ion-title>
+    <ion-title class="header-normal">Inicio de Sesion</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-list>
-      <ion-item>
+  <ion-card class="card-normal">
+    <ion-list class="list-normal">
+      <ion-item class="item-normal">
         <ion-label>Nombre:</ion-label>
         <ion-input type="text"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="item-normal">
         <ion-label>Contraseña:</ion-label>
         <ion-input type="password"></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button>Ingresar</ion-button>
-    <ion-button (click)="botonRecuperar()">Recuperar</ion-button>
+    <ion-button class="button-normal">Ingresar</ion-button>
+    <ion-button class="button-normal" (click)="botonRecuperar()">Recuperar</ion-button>
   </ion-card>
 </ion-content>
 
-<ion-footer>Joan Amaya - Javier Hurtado - 2023</ion-footer>
