@@ -10,10 +10,13 @@
 
 <ion-content [fullscreen]="true">
   <ion-card class="card-normal">
-    <h3>Bienvenido a la aplicación de Registro de Asistencia</h3>
+    <ion-card-title>Bienvenido a la aplicación de Registro de Asistencia</ion-card-title>
 
-    <ion-button class="button-normal" (click)="botonCrearUsuario()">Registrarse</ion-button>
-    <ion-button class="button-normal" (click)="botonLogin()">Iniciar Sesión</ion-button>
+    <ion-card class="array-boton" *ngFor="let h of homeArray" [routerLink]="h.url">
+      <ion-icon name=""></ion-icon>
+      <h2>{{h.nombre}}</h2>
+    </ion-card>
+    
   </ion-card>
 </ion-content>
 

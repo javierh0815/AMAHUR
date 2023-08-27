@@ -1,20 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Home } from 'src/app/models/home';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+
+  homeArray:Home[]=[];
 
   constructor(private router:Router) {}
-
-  botonLogin(){
-    this.router.navigateByUrl("/login");
+  
+  ngOnInit() {
+    this.menuHome();
   }
 
-  botonCrearUsuario(){
-    this.router.navigateByUrl("/crear-usuario");
+  menuHome(){
+    this.homeArray.push(
+      {
+        id:1,
+        nombre:"Registrarse",
+        url:"/crear-usuario"
+
+    },
+    {
+      id:2,
+      nombre:"Login",
+      url:"/login"
+
   }
+    )
+
+  }
+
+  
 }

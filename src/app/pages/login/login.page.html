@@ -19,8 +19,12 @@
         <ion-input type="password"></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button class="button-normal">Ingresar</ion-button>
-    <ion-button class="button-normal" (click)="botonRecuperar()">Recuperar</ion-button>
+
+    <ion-card class="array-boton" *ngFor="let l of loginArray" [routerLink]="l.url">
+      <ion-icon name=""></ion-icon>
+      <h2>{{l.nombre}}</h2>
+    </ion-card>
+    
   </ion-card>
 </ion-content>
 

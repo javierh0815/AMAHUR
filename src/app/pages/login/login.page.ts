@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HelperService } from 'src/app/services/helper.service';
+import { Login } from 'src/app/models/login';
+
+
 
 @Component({
   selector: 'app-login',
@@ -8,17 +12,34 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router:Router) { }
+  loginArray:Login[]=[];
+
+  constructor(private router:Router,private helper:HelperService) { }
+
+  
 
   ngOnInit() {
+    this.menuLogin();
   }
 
-  botonIngresar(){
+  menuLogin(){
+    this.loginArray.push(
+      {
+        id:1,
+        nombre:"Ingresar",
+        url:"/codigo"
+
+      },
+      {
+      id:2,
+      nombre:"Recuperar",
+      url:"/recuperar"
+
+      }
+    )
 
   }
 
-  botonRecuperar(){
-    this.router.navigateByUrl("/recuperar");
-  }
+
   
 }
