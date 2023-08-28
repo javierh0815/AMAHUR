@@ -16,4 +16,6 @@ export class CrearUsuarioPage implements OnInit {
   botonUsuarioCreado(){
     this.router.navigateByUrl("/home");
   }
+
+
 }
