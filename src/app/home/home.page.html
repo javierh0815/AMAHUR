@@ -10,12 +10,15 @@
 
 <ion-content [fullscreen]="true">
   <ion-card class="card-normal">
-    <ion-card-title>Bienvenido a la aplicación de Registro de Asistencia</ion-card-title>
-
+    
+    <div class="array-box">
+    <ion-card-title>Bienvenido a Registrapp</ion-card-title>
     <ion-card class="array-boton" *ngFor="let h of homeArray" [routerLink]="h.url">
-      <ion-icon name=""></ion-icon>
+      <ion-icon [name]="h.icono" class="ion-icon"></ion-icon>
       <h2>{{h.nombre}}</h2>
     </ion-card>
+  </div>
+    
     
   </ion-card>
 </ion-content>

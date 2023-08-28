@@ -12,7 +12,8 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class LoginPage implements OnInit {
 
-  
+    user:string="";
+    pass:string="";
 
   constructor(private router:Router,private helper:HelperService) { }
 
@@ -21,7 +22,26 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
 
   botonIngresar(){
-    this.router.navigateByUrl("/codigo");
+    
+
+    if (this.user == ""){
+      
+      this.helper.showAlert("Debe ingresar un usuario","Error");
+      return;
+    }
+    if (this.pass == ""){
+      this.helper.showAlert("Debe ingresar una contraseña","Error");
+      return;
+    }
+    if (this.user == "pgy4121001d" && this.pass == "pgy4121001d"){
+      this.helper.showAlert('¡Bienvenido, ' + this.user + '!',"Login Exitoso")
+      this.router.navigateByUrl("codigo");
+
+    }
+    
+    
+    
+    
   }
   
   botonRecuperar(){

@@ -22,13 +22,15 @@ export class HomePage implements OnInit {
       {
         id:1,
         nombre:"Registrarse",
-        url:"/crear-usuario"
+        url:"/crear-usuario",
+        icono:"create"
 
     },
     {
       id:2,
       nombre:"Login",
-      url:"/login"
+      url:"/login",
+      icono:"log-in"
 
   }
     )
