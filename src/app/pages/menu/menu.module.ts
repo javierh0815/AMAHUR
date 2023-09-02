@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CodigoPageRoutingModule } from './codigo-routing.module';
+import { MenuPageRoutingModule } from './menu-routing.module';
 
-import { CodigoPage } from './codigo.page';
+import { MenuPage } from './menu.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CodigoPageRoutingModule
+    MenuPageRoutingModule
   ],
-  declarations: [CodigoPage]
+  declarations: [MenuPage]
 })
-export class CodigoPageModule {}
+export class MenuPageModule {}
