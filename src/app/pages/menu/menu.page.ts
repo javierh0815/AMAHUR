@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MenuPage implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private helper:HelperService) { }
 
   ngOnInit() {
   }
@@ -20,4 +21,14 @@ export class MenuPage implements OnInit {
    botonVisualizar(){
     this.router.navigateByUrl("registro");
    }
-}
+
+   async botonLogout(){
+    var confirm = await this.helper.showConfirm("Confirmar cierre de sesión","Confirmar","Cancelar");
+    if(confirm == true) {
+      this.router.navigateByUrl("login");
+      }
+  }
+
+
+   }
+
