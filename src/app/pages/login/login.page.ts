@@ -47,6 +47,10 @@ export class LoginPage implements OnInit {
     this.router.navigateByUrl("/recuperar");
   }
 
+  botonRegistrar(){
+    this.router.navigateByUrl("registro");
+  }
+
   
 
 

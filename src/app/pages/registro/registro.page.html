@@ -4,17 +4,44 @@
       <ion-back-button class="buttons-normal"></ion-back-button>
     </ion-buttons>
     <ion-title class="header-normal">Registro</ion-title>
-    <ion-button class="button-logout" (click)="botonLogout()" slot="end">
-      <ion-icon name="log-out-outline"></ion-icon>
-    </ion-button>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Registro</ion-title>
+  <ion-card class="card-normal">
+
+    <ion-list class="list-normal">
+
+
       
-    </ion-toolbar>
-  </ion-header>
+      <ion-item class="item-normal">
+        <ion-label>Nombre: </ion-label>
+        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+
+      <ion-item class="item-normal">
+        <ion-label>Apellido: </ion-label>
+        <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+      </ion-item>
+
+      <ion-item class="item-normal">
+        <ion-label>Correo: </ion-label>
+        <ion-input type="text" [(ngModel)]="correo"></ion-input>
+      </ion-item>
+
+      <ion-item class="item-normal">
+        <ion-label>Contraseña: </ion-label>
+        <ion-input type="password" [(ngModel)]="pass"></ion-input>
+      </ion-item>
+
+      <ion-item class="item-normal">
+        <ion-label>Confirmar contraseña: </ion-label>
+        <ion-input type="password" [(ngModel)]="passB"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button class="button-normal" (click)="botonReg()">Ingresar Al Sistema</ion-button>
+  </ion-card>
 </ion-content>
