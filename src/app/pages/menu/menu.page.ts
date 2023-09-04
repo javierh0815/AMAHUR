@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 import type { Animation } from '@ionic/angular';
-import { AnimationController, IonButton } from '@ionic/angular';
+import { AnimationController, IonCard } from '@ionic/angular';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
@@ -10,8 +10,8 @@ import { AnimationController, IonButton } from '@ionic/angular';
 })
 export class MenuPage implements OnInit {
 
-  @ViewChild(IonButton, { read: ElementRef })
-  card!: ElementRef<HTMLIonButtonElement>;
+  @ViewChild(IonCard, { read: ElementRef })
+  card!: ElementRef<HTMLIonCardElement>;
 
   private animation!: Animation;
 
@@ -37,11 +37,11 @@ export class MenuPage implements OnInit {
   }
   ngAfterViewInit(){
   this.animation =  this.animationCtrl.create()
-  .addElement(document.querySelectorAll("ion-button"))
+  .addElement(document.querySelectorAll("ion-card .card-menu"))
   .duration(1000)
   .iterations(4)
   .direction('alternate')
-  .fromTo('--background','#AC8BEE','#573D7F');
+  .fromTo('background','#573D7F','#AC8BEE');
   this.animation.play()
 }
 

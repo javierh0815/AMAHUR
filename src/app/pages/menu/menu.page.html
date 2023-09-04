@@ -12,10 +12,22 @@
 
 <ion-content [fullscreen]="true">
   <ion-card class="card-normal">
-
-    <ion-button class="button-normal" (click)="botonScan()">Escanear</ion-button>
-    <ion-button class="button-normal" (click)="botonVisualizar()">Visualizar</ion-button>
-
+    <ion-grid>
+     <ion-row>
+      <ion-col>
+        <ion-card class="card-menu" (click)="botonScan()">
+          <ion-icon name="camera-outline"></ion-icon>
+          <p>Escanear código</p>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-menu" (click)="botonVisualizar()">
+          <ion-icon name="eye-outline"></ion-icon>
+          <p>Registro</p>
+        </ion-card>
+      </ion-col>
+     </ion-row>
+    </ion-grid>
   </ion-card>
 
  

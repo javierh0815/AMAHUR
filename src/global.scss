@@ -93,8 +93,19 @@ ion-card h3{
     --padding-bottom: 20px;
 }
 
-.array-boton{
+.card-menu{
+    height: 150px;
     --ion-item-background: #46325D;
     --color:white;
 
+}
+
+.card-menu ion-icon{
+    font-size: 100px;
+    padding-left: 20px;
+}
+
+.card-menu p{
+    padding-left: 20px;
+    font-size: medium;
 }
