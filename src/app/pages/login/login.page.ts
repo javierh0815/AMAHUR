@@ -34,7 +34,6 @@ export class LoginPage implements OnInit {
       return;
     }
     if (this.user == "pgy4121001d" && this.pass == "pgy4121001d"){
-      this.helper.showAlert('¡Bienvenido, ' + this.user + '!',"Login Exitoso")
       this.router.navigateByUrl("menu");
 
     }

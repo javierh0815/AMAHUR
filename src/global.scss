@@ -95,18 +95,35 @@ ion-card h3{
 }
 
 .card-menu{
-    height: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
     --ion-item-background: #46325D;
+    --background-hover: #573D7F;
+    --background-activated: #573D7F;
     --color:white;
 
 }
 
 .card-menu ion-icon{
-    font-size: 100px;
-    padding-left: 20px;
+    font-size: 50px;
 }
 
-.card-menu p{
-    padding-left: 20px;
-    font-size: medium;
+.card-menu ion-card-title{
+    color: #fff;
 }
+
+.box-skeleton {
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    
+}
+
+

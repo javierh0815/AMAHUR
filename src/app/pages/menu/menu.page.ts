@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
+import { Menu } from 'src/app/models/home';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
@@ -14,11 +15,41 @@ export class MenuPage implements OnInit {
   card!: ElementRef<HTMLIonCardElement>;
 
   private animation!: Animation;
+  
+  loading:boolean=true;
+
+  menuArray:Menu[]=[];
 
 
   constructor(private router:Router,private helper:HelperService,private animationCtrl: AnimationController ) { }
 
   ngOnInit() {
+    this.menuHome();
+    setTimeout(this.simularCargaInformacion, 2000)
+  }
+
+  menuHome(){
+    this.menuArray.push(
+      {
+        id:1,
+        nombre:"Escanear código",
+        url:"/camara",
+        icono:"camera-outline"
+
+    },
+    {
+      id:2,
+      nombre:"Registro",
+      url:"/registro",
+      icono:"eye-outline"
+
+  }
+    )
+
+  }
+
+  simularCargaInformacion = () => {
+    this.loading = false;
   }
 
    botonScan(){
@@ -37,13 +68,12 @@ export class MenuPage implements OnInit {
   }
   ngAfterViewInit(){
   this.animation =  this.animationCtrl.create()
-  .addElement(document.querySelectorAll("ion-card .card-menu"))
+  .addElement(document.querySelectorAll("ion-card"))
   .duration(1000)
-  .iterations(4)
+  .iterations(8)
   .direction('alternate')
-  .fromTo('background','#573D7F','#AC8BEE');
+  .fromTo('background','white','#e1c1fb');
   this.animation.play()
 }
-
    }
 
