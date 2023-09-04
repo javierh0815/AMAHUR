@@ -15,20 +15,27 @@
     <ion-grid>
      <ion-row>
       <ion-col>
-        <ion-card class="card-menu" (click)="botonScan()">
-          <ion-icon name="camera-outline"></ion-icon>
-          <p>Escanear código</p>
+        <ng-container *ngIf="!loading">
+        <ion-card class="card-menu" *ngFor="let m of menuArray" [routerLink]="m.url">
+          <ion-icon [name]="m.icono"></ion-icon>
+          <ion-card-title>{{m.nombre}}</ion-card-title>
         </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card class="card-menu" (click)="botonVisualizar()">
-          <ion-icon name="eye-outline"></ion-icon>
-          <p>Registro</p>
-        </ion-card>
+      </ng-container>
       </ion-col>
      </ion-row>
     </ion-grid>
-  </ion-card>
+   
 
- 
+   <ng-container *ngIf="loading">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="box-skeleton" *ngFor="let m of menuArray">
+           <ion-skeleton-text [animated]="true" class="skeleton"></ion-skeleton-text>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   </ng-container>
+  </ion-card>
 </ion-content>
