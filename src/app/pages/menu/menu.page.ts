@@ -32,14 +32,14 @@ export class MenuPage implements OnInit {
     this.menuArray.push(
       {
         id:1,
-        nombre:"Escanear código",
+        nombre:"Escanear",
         url:"/camara",
         icono:"camera-outline"
 
     },
     {
       id:2,
-      nombre:"Registro",
+      nombre:"Visualizar",
       url:"/registro",
       icono:"eye-outline"
 
