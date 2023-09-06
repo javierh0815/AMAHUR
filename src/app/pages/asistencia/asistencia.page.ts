@@ -21,4 +21,11 @@ export class AsistenciaPage implements OnInit {
       }
   }
 
+  async botonPresente(){
+    var confirm= await this.helper.showConfirm("Confirmar su registro como presente","OK","Cancelar");
+    if(confirm == true) {
+      this.router.navigateByUrl("detalle-asignatura");
+    }
+  }
+
 }
