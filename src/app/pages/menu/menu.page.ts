@@ -57,7 +57,7 @@ export class MenuPage implements OnInit {
    }
 
    botonVisualizar(){
-    this.router.navigateByUrl("registro");
+    this.router.navigateByUrl("detalle-asignatura");
    }
 
    async botonLogout(){
