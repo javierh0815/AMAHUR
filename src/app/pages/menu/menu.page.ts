@@ -40,7 +40,7 @@ export class MenuPage implements OnInit {
     {
       id:2,
       nombre:"Visualizar",
-      url:"/registro",
+      url:"/visualizar",
       icono:"eye-outline"
 
   }
@@ -51,14 +51,6 @@ export class MenuPage implements OnInit {
   simularCargaInformacion = () => {
     this.loading = false;
   }
-
-   botonScan(){
-    this.router.navigateByUrl("camara");
-   }
-
-   botonVisualizar(){
-    this.router.navigateByUrl("detalle-asignatura");
-   }
 
    async botonLogout(){
     var confirm = await this.helper.showConfirm("¿Deseas cerrar la sesion?","Confirmar","Cancelar");

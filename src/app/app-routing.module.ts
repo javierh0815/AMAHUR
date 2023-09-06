@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 'detalle-asignatura',
     loadChildren: () => import('./pages/detalle-asignatura/detalle-asignatura.module').then( m => m.DetalleAsignaturaPageModule)
   },
+  {
+    path: 'visualizar',
+    loadChildren: () => import('./pages/visualizar/visualizar.module').then( m => m.VisualizarPageModule)
+  },
 
 
 
