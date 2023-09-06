@@ -3,18 +3,21 @@ import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
-  selector: 'app-detalle-asignatura',
-  templateUrl: './detalle-asignatura.page.html',
-  styleUrls: ['./detalle-asignatura.page.scss'],
+  selector: 'app-lista-asignaturas',
+  templateUrl: './lista-asignaturas.page.html',
+  styleUrls: ['./lista-asignaturas.page.scss'],
 })
-export class DetalleAsignaturaPage implements OnInit {
+export class ListaAsignaturasPage implements OnInit {
+  
 
   constructor(private router:Router,private helper:HelperService) { }
 
   ngOnInit() {
   }
 
-  
+  botonSeccion(){
+    this.router.navigateByUrl("detalle-asignatura");
+  }
 
   async botonLogout(){
     var confirm = await this.helper.showConfirm("Confirmar cierre de sesión","Confirmar","Cancelar");

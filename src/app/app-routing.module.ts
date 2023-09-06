@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'visualizar',
     loadChildren: () => import('./pages/visualizar/visualizar.module').then( m => m.VisualizarPageModule)
   },
+  {
+    path: 'lista-asignaturas',
+    loadChildren: () => import('./pages/lista-asignaturas/lista-asignaturas.module').then( m => m.ListaAsignaturasPageModule)
+  },
 
 
 
