@@ -9,10 +9,14 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class CamaraPage implements OnInit {
 
+  isModalOpen = false;
+
   constructor(private router:Router,private helper:HelperService) { }
 
   ngOnInit() {
   }
+
+  
 
   async botonLogout(){
     var confirm = await this.helper.showConfirm("Confirmar cierre de sesión","Confirmar","Cancelar");
@@ -20,5 +24,11 @@ export class CamaraPage implements OnInit {
       this.router.navigateByUrl("login");
       }
   }
+
+  botonAsistencia(){
+    this.router.navigateByUrl("asistencia");
+  }
+
+  
 
 }
