@@ -33,14 +33,14 @@ export class MenuPage implements OnInit {
       {
         id:1,
         nombre:"Escanear",
-        url:"/camara",
+        url:"/codqr/camara",
         icono:"camera-outline"
 
     },
     {
       id:2,
       nombre:"Visualizar",
-      url:"/lista-asignaturas",
+      url:"/rs/lista-asignaturas",
       icono:"eye-outline"
 
   }
