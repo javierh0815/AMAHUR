@@ -33,14 +33,13 @@ export class LoginPage implements OnInit {
       this.helper.showAlert("Debe ingresar una contraseña","Error");
       return;
     }
-    if (this.user == "pgy4121001d" && this.pass == "pgy4121001d"){
-      this.router.navigateByUrl("menu");
-
+    if (this.user != "pgy4121-001d" && this.pass != "pgy4121-001d"){
+      this.helper.showAlert("Debe ingresar credenciales correctas","Error");
+      return;
     }
-    
-    
-    
-    
+    if (this.user == "pgy4121-001d" && this.pass == "pgy4121-001d"){
+      this.router.navigateByUrl("menu");
+    }
   }
   
   botonRecuperar(){

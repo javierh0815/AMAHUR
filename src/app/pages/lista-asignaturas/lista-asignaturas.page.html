@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button class="buttons-normal"></ion-back-button>
     </ion-buttons>
-    <ion-title class="header-normal">lista-asignaturas</ion-title>
+    <ion-title class="header-normal">Asignaturas Por Sección</ion-title>
     <ion-button class="button-logout" (click)="botonLogout()" slot="end">
       <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
@@ -24,7 +24,7 @@
 
     <ion-card-content>
       <h1>Fecha:</h1>
-      08 /Septiembre/2023
+      08 / Septiembre / 2023
     </ion-card-content>
 
     <ion-card-content>
@@ -39,4 +39,33 @@
 
 
   </ion-card>
+
+  <ion-card class="card-normal" (click)="botonSeccion()">
+      
+    <ion-card-content>
+      <h1>Programación Web - Sesión Lunes</h1>
+    </ion-card-content>
+
+    <ion-card-content>
+      <h1>Profesor:</h1>
+      Guillermo Villacura
+    </ion-card-content>
+
+    <ion-card-content>
+      <h1>Fecha:</h1>
+      11 / Septiembre /2023
+    </ion-card-content>
+
+    <ion-card-content>
+      <h1>Hora entrada:</h1>
+      10:00
+    </ion-card-content>
+
+    <ion-card-content>
+      <h1>Sala:</h1>
+      L3 - Piso 3
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>
