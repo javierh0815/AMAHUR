@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-registro',
@@ -15,43 +17,46 @@ export class RegistroPage implements OnInit {
   pass:string="";
   passB:string="";
 
-  constructor(private router:Router,private helper:HelperService) { }
+  constructor(private router:Router,
+              private helper:HelperService,
+              private storage:StorageService,
+              private auth:AngularFireAuth
+              ) { }
 
   ngOnInit() {
   }
 
   
 
-  botonReg(){
-    if (this.nombre == ""){
-      this.helper.showAlert("Debe ingresar un nombre","Error");
+  async botonReg(){
+    const loader = await this.helper.showLoader("Cargando");
+    if (this.correo == ''){
+      await loader.dismiss();
+      await this.helper.showAlert("Debe ingresar un correo","Error");
       return;
     }
-    if(this.apellido == ""){
-      this.helper.showAlert("Debe ingresar un apellido","Error");
-      return;
+    var user = [{
+      correo:this.correo,
+      pass:this.pass
+    }]
+
+    try {
+      const request = await this.auth.createUserWithEmailAndPassword(this.correo,this.pass);
+      await this.storage.guardarUser(user);
+      await this.router.navigateByUrl("login");
+      await loader.dismiss();
+      await this.helper.showAlert("Usuario Registrado Correctamente","Éxito");
+    }catch(error:any){
+      if (error.code == 'auth/email-already-in-use'){
+        await loader.dismiss();
+        await this.helper.showAlert("El correo ya está en uso","Error");
+      }
+      if (error.code == 'auth/invalid-email'){
+        await loader.dismiss();
+        await this.helper.showAlert("Email inválido","Error");
+      }
     }
-    if(this.correo == ""){
-      this.helper.showAlert("Debe ingresar un correo","Error");
-      return;
-    }
-    if(this.pass == ""){
-      this.helper.showAlert("Debe ingresar una contraseña","Error");
-      return;
-    }
-    if(this.passB == ""){
-      this.helper.showAlert("Debe confirmar su contraseña","Error");
-      return;
-    }
-    if(this.pass !== this.passB){
-      this.helper.showAlert("Las contraseñas deben ser iguales","Error");
-      return;
-    }
-    else {
-      this.helper.showAlert("Registro exitoso. Volviendo a la pantalla de Login...","Exito");
-      this.router.navigateByUrl("login");
-      return;
-    }
+
   }
 
 }

@@ -1,12 +1,24 @@
 import { Injectable } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HelperService {
 
-  constructor(private alertService:AlertController) { }
+  constructor(private alertService:AlertController,
+              private loadingController:LoadingController
+              ) { }
+
+  async showLoader(msg:string){
+    var loader = await this.loadingController.create({
+      cssClass:"loaderClass",
+      message:msg,
+      translucent:true
+    });
+    await loader.present();
+    return loader;
+  }
 
   async showAlert(msg:string,title:string){
     var alert = await this.alertService.create({cssClass:"alertClass",message:msg,header:title,buttons:['Aceptar']})
