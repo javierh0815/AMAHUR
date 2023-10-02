@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { Comuna } from 'src/app/models/apiComuna';
+import { Region } from 'src/app/models/apiRegion';
 import { HelperService } from 'src/app/services/helper.service';
+import { LocationService } from 'src/app/services/location.service';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
@@ -16,16 +19,38 @@ export class RegistroPage implements OnInit {
   correo:string="";
   pass:string="";
   passB:string="";
+  regiones:Region[]=[];
+  comunas:Comuna[]=[];
+  seleccionR:number = 0;
+  seleccionC:number = 0;
+  disComuna:boolean = true;
 
   constructor(private router:Router,
               private helper:HelperService,
               private storage:StorageService,
-              private auth:AngularFireAuth
+              private auth:AngularFireAuth,
+              private locationService:LocationService
               ) { }
 
   ngOnInit() {
+    this.cargarRegion();
   }
 
+  async cargarRegion(){
+    const req = await this.locationService.getRegion();
+    this.regiones = req.data;
+  }
+
+  async cargarComuna(){
+    try {
+      const req = await this.locationService.getComuna(this.seleccionR);
+      this.comunas = req.data;
+      this.disComuna = false;
+    } catch (error:any) {
+      await this.helper.showAlert(error.error.msg,"Error");
+      
+    }
+  }
   
 
   async botonReg(){

@@ -4,6 +4,9 @@ import { HelperService } from 'src/app/services/helper.service';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
 import { Menu } from 'src/app/models/home';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
@@ -21,7 +24,11 @@ export class MenuPage implements OnInit {
   menuArray:Menu[]=[];
 
 
-  constructor(private router:Router,private helper:HelperService,private animationCtrl: AnimationController ) { }
+  constructor(private router:Router,
+              private helper:HelperService,
+              private animationCtrl: AnimationController,
+              private auth: AngularFireAuth
+               ) { }
 
   ngOnInit() {
     this.menuHome();
@@ -55,17 +62,20 @@ export class MenuPage implements OnInit {
    async botonLogout(){
     var confirm = await this.helper.showConfirm("¿Deseas cerrar la sesion?","Confirmar","Cancelar");
     if(confirm == true) {
+      await this.auth.signOut();
       this.router.navigateByUrl("login");
       }
   }
-  ngAfterViewInit(){
-  this.animation =  this.animationCtrl.create()
-  .addElement(document.querySelectorAll("ion-card"))
-  .duration(1000)
-  .iterations(8)
-  .direction('alternate')
-  .fromTo('background','white','#e1c1fb');
-  this.animation.play()
-}
+
+
+    ngAfterViewInit(){
+      this.animation =  this.animationCtrl.create()
+      .addElement(document.querySelectorAll("ion-card"))
+      .duration(1000)
+      .iterations(8)
+      .direction('alternate')
+      .fromTo('background','white','#e1c1fb');
+      this.animation.play()
+    } 
    }
 

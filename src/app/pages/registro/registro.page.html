@@ -40,8 +40,24 @@
         <ion-input type="password" [(ngModel)]="passB"></ion-input>
       </ion-item>
 
+      <ion-list>
+        <ion-item> 
+          <ion-select (ionChange)="cargarComuna()" placeholder="Seleccionar región" [(ngModel)]="regionSel">
+            <ion-select-option *ngFor="let i of regiones" [value]="i.id">{{i.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          <ion-select [disabled]="disabledComuna" placeholder="Seleccionar comuna" [(ngModel)]="comunaSel">
+            <ion-select-option *ngFor="let i of comunas" [value]="i.id">{{i.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
     </ion-list>
 
-    <ion-button class="button-normal" (click)="botonReg()">Ingresar Al Sistema</ion-button>
+    <ion-button class="button-normal" (click)="botonReg()">Registrar Usuario</ion-button>
   </ion-card>
 </ion-content>
