@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
+
+const redireccionLogin = () => redirectUnauthorizedTo(['/login']);
 
 const routes: Routes = [
   {
@@ -8,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'menu',
     pathMatch: 'full'
   },
 
@@ -22,14 +25,17 @@ const routes: Routes = [
   },
   
   {
+    canActivate:[AngularFireAuthGuard], data:{authGuardPipe: redireccionLogin},
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
   {
+    canActivate:[AngularFireAuthGuard], data:{authGuardPipe: redireccionLogin},
     path: ':qr/camara',
     loadChildren: () => import('./pages/camara/camara.module').then( m => m.CamaraPageModule)
   },
   {
+    canActivate:[AngularFireAuthGuard], data:{authGuardPipe: redireccionLogin},
     path: 'asistencia',
     loadChildren: () => import('./pages/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
   },
@@ -38,11 +44,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
+    canActivate:[AngularFireAuthGuard], data:{authGuardPipe: redireccionLogin},
     path: 'detalle-asignatura',
     loadChildren: () => import('./pages/detalle-asignatura/detalle-asignatura.module').then( m => m.DetalleAsignaturaPageModule)
   },
  
   {
+    canActivate:[AngularFireAuthGuard], data:{authGuardPipe: redireccionLogin},
     path: ':verAsi/lista-asignaturas',
     loadChildren: () => import('./pages/lista-asignaturas/lista-asignaturas.module').then( m => m.ListaAsignaturasPageModule)
   },

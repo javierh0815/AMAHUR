@@ -42,7 +42,7 @@
 
       <ion-list>
         <ion-item> 
-          <ion-select (ionChange)="cargarComuna()" placeholder="Seleccionar región" [(ngModel)]="regionSel">
+          <ion-select (ionChange)="cargarComuna()" placeholder="Seleccionar región" [(ngModel)]="seleccionR">
             <ion-select-option *ngFor="let i of regiones" [value]="i.id">{{i.nombre}}</ion-select-option>
           </ion-select>
         </ion-item>
@@ -50,7 +50,7 @@
 
       <ion-list>
         <ion-item>
-          <ion-select [disabled]="disabledComuna" placeholder="Seleccionar comuna" [(ngModel)]="comunaSel">
+          <ion-select [disabled]="disComuna" placeholder="Seleccionar comuna" [(ngModel)]="seleccionC">
             <ion-select-option *ngFor="let i of comunas" [value]="i.id">{{i.nombre}}</ion-select-option>
           </ion-select>
         </ion-item>
