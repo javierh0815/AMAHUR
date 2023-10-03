@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { StorageService } from 'src/app/services/storage.service';
 
 
 
@@ -15,31 +16,46 @@ export class LoginPage implements OnInit {
     user:string="";
     pass:string="";
 
-  constructor(private router:Router,private helper:HelperService) { }
+  constructor(private router:Router,
+              private helper:HelperService,
+              private auth:AngularFireAuth,
+              private storage:StorageService
+              ) { }
 
   
 
   ngOnInit() {}
 
-  botonIngresar(){
-    
-
-    if (this.user == ""){
-      
-      this.helper.showAlert("Debe ingresar un usuario","Error");
-      return;
-    }
-    if (this.pass == ""){
+  async botonIngresar(){
+   const loader = await this.helper.showLoader("Cargando...");
+   if (this.user == "") {
+    await loader.dismiss();
+    this.helper.showAlert("Debe ingresar un correo","Error");
+    return;
+   }
+    if (this.pass == "") {
+      await loader.dismiss();
       this.helper.showAlert("Debe ingresar una contraseña","Error");
-      return;
+      return; 
     }
-    if (this.user != "pgy4121-001d" && this.pass != "pgy4121-001d"){
-      this.helper.showAlert("Debe ingresar credenciales correctas","Error");
-      return;
+    try {
+      const req = await this.auth.signInWithEmailAndPassword(this.user,this.pass);
+      this.storage.emailUser = this.user;
+      await loader.dismiss();
+      await this.router.navigateByUrl('menu');
+    } catch (error:any) {
+      if (error.code=='auth/invalid-email'){
+        await loader.dismiss();
+        await this.helper.showAlert("El correo ingresado no es válido","Error");
+      }
+      if (error.code=='auth/weak-password'){
+        await loader.dismiss();
+        await this.helper.showAlert("La contraseña no es lo suficientemente fuerte","Error");
+      }
+      
     }
-    if (this.user == "pgy4121-001d" && this.pass == "pgy4121-001d"){
-      this.router.navigateByUrl("menu");
-    }
+
+   
   }
   
   botonRecuperar(){
