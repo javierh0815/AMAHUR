@@ -14,8 +14,9 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class RegistroPage implements OnInit {
 
-  nombre:string="";
-  apellido:string="";
+  // nombre:string="";
+  // apellido:string="";
+
   correo:string="";
   pass:string="";
   passB:string="";
@@ -39,6 +40,7 @@ export class RegistroPage implements OnInit {
   async cargarRegion(){
     const req = await this.locationService.getRegion();
     this.regiones = req.data;
+    console.log("REGIONES",this.regiones);
   }
 
   async cargarComuna(){
@@ -58,6 +60,21 @@ export class RegistroPage implements OnInit {
     if (this.correo == ''){
       await loader.dismiss();
       await this.helper.showAlert("Debe ingresar un correo","Error");
+      return;
+    }
+    if (this.pass == ''){
+      await loader.dismiss();
+      await this.helper.showAlert("Debe ingresar una contraseña","Error");
+      return;
+    }
+    if (this.passB == ''){
+      await loader.dismiss();
+      await this.helper.showAlert("Debe confirmar su contraseña","Error");
+      return;
+    }
+    if (this.pass != this.passB){
+      await loader.dismiss();
+      await this.helper.showAlert("Las contraseñas que ha ingresado no son iguales","Error");
       return;
     }
     var user = [{
