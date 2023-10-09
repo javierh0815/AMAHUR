@@ -52,6 +52,10 @@ export class LoginPage implements OnInit {
         await loader.dismiss();
         await this.helper.showAlert("La contraseña no es lo suficientemente fuerte","Error");
       }
+      if (error.code == 'auth/invalid-password'){
+        await loader.dismiss();
+        await this.helper.showAlert("Contraseña inválida","Error");
+      }
       
     }
 

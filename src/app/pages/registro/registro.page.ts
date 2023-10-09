@@ -62,6 +62,11 @@ export class RegistroPage implements OnInit {
       await this.helper.showAlert("Debe ingresar un correo","Error");
       return;
     }
+    if (this.correo.length > 3){
+      await loader.dismiss();
+      await this.helper.showAlert("Su correo es demasiado corto","Error");
+      return;
+    }
     if (this.pass == ''){
       await loader.dismiss();
       await this.helper.showAlert("Debe ingresar una contraseña","Error");
@@ -96,6 +101,10 @@ export class RegistroPage implements OnInit {
       if (error.code == 'auth/invalid-email'){
         await loader.dismiss();
         await this.helper.showAlert("Email inválido","Error");
+      }
+      if (error.code == 'auth/invalid-password'){
+        await loader.dismiss();
+        await this.helper.showAlert("Contraseña inválida","Error");
       }
     }
 
