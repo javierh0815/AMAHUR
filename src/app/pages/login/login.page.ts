@@ -56,6 +56,10 @@ export class LoginPage implements OnInit {
         await loader.dismiss();
         await this.helper.showAlert("Contraseña inválida","Error");
       }
+      if (error.code == 'auth/user-not-found'){
+        await loader.dismiss();
+        await this.helper.showAlert("Usuario no encontrado, debe registrarse","Error");
+      }
       
     }
 
