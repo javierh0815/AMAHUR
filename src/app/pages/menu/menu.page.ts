@@ -40,14 +40,14 @@ export class MenuPage implements OnInit {
       {
         id:1,
         nombre:"Escanear",
-        url:"/codqr/camara",
+        url:"/1/camara",
         icono:"camera-outline"
 
     },
     {
       id:2,
       nombre:"Visualizar",
-      url:"/rs/lista-asignaturas",
+      url:"lista-asignaturas",
       icono:"eye-outline"
 
   }

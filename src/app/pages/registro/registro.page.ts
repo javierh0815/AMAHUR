@@ -14,12 +14,13 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class RegistroPage implements OnInit {
 
-  // nombre:string="";
-  // apellido:string="";
+  
 
   correo:string="";
   pass:string="";
   passB:string="";
+  nombre:string= '';
+  apellido:string='';
   regiones:Region[]=[];
   comunas:Comuna[]=[];
   seleccionR:number = 0;
@@ -82,7 +83,21 @@ export class RegistroPage implements OnInit {
       await this.helper.showAlert("Las contraseñas que ha ingresado no son iguales","Error");
       return;
     }
+    if (this.nombre = '') {
+      await loader.dismiss();
+      await this.helper.showAlert("Debe ingresar un nombre","Error");
+      return;
+      
+    }
+    if (this.apellido='') {
+      await loader.dismiss();
+      await this.helper.showAlert("Debe ingresar un apellido","Error");
+      return;
+    }
+    
     var user = [{
+      nombre:this.nombre,
+      apellido:this.apellido,
       correo:this.correo,
       pass:this.pass
     }]

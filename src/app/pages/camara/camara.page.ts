@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
@@ -10,10 +10,17 @@ import { HelperService } from 'src/app/services/helper.service';
 export class CamaraPage implements OnInit {
 
   isModalOpen = false;
+  parametroCamara:number | undefined;
 
-  constructor(private router:Router,private helper:HelperService) { }
+  constructor(private router:Router,
+              private helper:HelperService,
+              private activaredRouter:ActivatedRoute
+              ) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.parametroCamara = this.activaredRouter.snapshot.params['idcam'];
+    console.log("Parámetro: ",this.parametroCamara);
+    
   }
 
   

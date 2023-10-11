@@ -31,7 +31,7 @@ const routes: Routes = [
   },
   {
     canActivate:[AngularFireAuthGuard], data:{authGuardPipe: redireccionLogin},
-    path: ':qr/camara',
+    path: ':idcam/camara',
     loadChildren: () => import('./pages/camara/camara.module').then( m => m.CamaraPageModule)
   },
   {
@@ -51,7 +51,7 @@ const routes: Routes = [
  
   {
     canActivate:[AngularFireAuthGuard], data:{authGuardPipe: redireccionLogin},
-    path: ':verAsi/lista-asignaturas',
+    path: 'lista-asignaturas',
     loadChildren: () => import('./pages/lista-asignaturas/lista-asignaturas.module').then( m => m.ListaAsignaturasPageModule)
   },
 
