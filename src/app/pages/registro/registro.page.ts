@@ -63,11 +63,6 @@ export class RegistroPage implements OnInit {
       await this.helper.showAlert("Debe ingresar un correo","Error");
       return;
     }
-    if (this.correo.length > 3){
-      await loader.dismiss();
-      await this.helper.showAlert("Su correo es demasiado corto","Error");
-      return;
-    }
     if (this.pass == ''){
       await loader.dismiss();
       await this.helper.showAlert("Debe ingresar una contraseña","Error");
@@ -104,6 +99,7 @@ export class RegistroPage implements OnInit {
 
     try {
       const request = await this.auth.createUserWithEmailAndPassword(this.correo,this.pass);
+      this.storage.emailUser = this.correo;
       await this.storage.guardarUser(user);
       await this.router.navigateByUrl("login");
       await loader.dismiss();
