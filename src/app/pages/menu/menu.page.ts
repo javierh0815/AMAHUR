@@ -5,6 +5,7 @@ import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
 import { Menu } from 'src/app/models/home';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Network } from '@capacitor/network';
 
 
 @Component({
@@ -34,7 +35,17 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
     this.menuHome();
+    this.conexionInternet();
     setTimeout(this.simularCargaInformacion, 2000)
+  }
+
+  async conexionInternet(){
+    const status = await Network.getStatus();
+    if (status.connected){
+      this.helper.showToast("Estado de la Conexion: Conectado!");
+      }else{
+      this.helper.showToast("Estado de la Conexion: Desconectado...")  
+      }
   }
 
   menuHome(){
