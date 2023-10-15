@@ -53,7 +53,11 @@ const routes: Routes = [
     canActivate:[AngularFireAuthGuard], data:{authGuardPipe: redireccionLogin},
     path: 'lista-asignaturas',
     loadChildren: () => import('./pages/lista-asignaturas/lista-asignaturas.module').then( m => m.ListaAsignaturasPageModule)
+  },  {
+    path: 'perfil-usuario',
+    loadChildren: () => import('./pages/perfil-usuario/perfil-usuario.module').then( m => m.PerfilUsuarioPageModule)
   },
+
 
 
 

@@ -42,15 +42,19 @@ export class MenuPage implements OnInit {
         nombre:"Escanear",
         url:"/1/camara",
         icono:"camera-outline"
-
-    },
-    {
-      id:2,
-      nombre:"Visualizar",
-      url:"lista-asignaturas",
-      icono:"eye-outline"
-
-  }
+      },
+      {
+        id:2,
+        nombre:"Visualizar",
+        url:"lista-asignaturas",
+        icono:"eye-outline"
+      },
+      {
+        id:3,
+        nombre:"Perfil Usuario",
+        url:"perfil-usuario",
+        icono:"person-circle-outline"
+      }
     )
 
   }
