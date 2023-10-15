@@ -23,6 +23,8 @@ export class MenuPage implements OnInit {
 
   menuArray:Menu[]=[];
 
+  
+
 
   constructor(private router:Router,
               private helper:HelperService,
@@ -48,16 +50,12 @@ export class MenuPage implements OnInit {
         nombre:"Visualizar",
         url:"lista-asignaturas",
         icono:"eye-outline"
-      },
-      {
-        id:3,
-        nombre:"Perfil Usuario",
-        url:"perfil-usuario",
-        icono:"person-circle-outline"
       }
     )
 
   }
+
+  
 
   simularCargaInformacion = () => {
     this.loading = false;

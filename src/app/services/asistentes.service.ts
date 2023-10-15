@@ -9,7 +9,7 @@ const keyStorageAsistencia = "asistenciaData";
 })
 export class AsistentesService {
 
-  public estudiante:any;
+  estudiante:any;
   
 
   constructor(private auth:AngularFireAuth) { }
@@ -48,7 +48,7 @@ export class AsistentesService {
         asistencia.push(a);
       }
     }
-    this.setAsistencia(keyStorageAsistencia,JSON.stringify(asistencia));
+    this.setAsistencia(keyStorageAsistencia,JSON.stringify(asistencia))
   }
 
 
