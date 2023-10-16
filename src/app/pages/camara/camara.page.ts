@@ -19,7 +19,7 @@ export class CamaraPage implements OnInit {
 
   ngOnInit(){
     this.parametroCamara = this.activaredRouter.snapshot.params['idcam'];
-    console.log("Parámetro: ",this.parametroCamara);
+    
     
   }
 

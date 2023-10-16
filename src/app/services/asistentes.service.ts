@@ -41,7 +41,7 @@ export class AsistentesService {
     const asistenciaStorage = await this.obtenerAsistencia();
     var asistenteToken = await this.auth.currentUser;
     for (const a of asistenciaStorage){
-      if (a.correo === this.estudiante.filter((e: {correo:string;})=>e.correo==asistenteToken?.email)){
+      if (asistenciaStorage.includes(this.estudiante.filter((e: {correo:string;})=>e.correo==asistenteToken?.email))){
         return;
       }
       else{

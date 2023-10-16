@@ -59,7 +59,7 @@ export class MenuPage implements OnInit {
       {
         id:2,
         nombre:"Visualizar",
-        url:"lista-asignaturas",
+        url:"/2/lista-asignaturas",
         icono:"eye-outline"
       }
     )
