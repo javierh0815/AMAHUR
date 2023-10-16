@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
@@ -9,12 +10,15 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class DetalleAsignaturaPage implements OnInit {
 
-  constructor(private router:Router,private helper:HelperService) { }
+  constructor(private router:Router,private helper:HelperService,private modalController:ModalController) { }
 
   ngOnInit() {
   }
 
-  
+  cerrarModal(){
+    this.modalController.dismiss();
+
+  }
 
   async botonLogout(){
     var confirm = await this.helper.showConfirm("Confirmar cierre de sesión","Confirmar","Cancelar");
