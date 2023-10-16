@@ -58,17 +58,17 @@ export class RegistroPage implements OnInit {
 
   async botonReg(){
     const loader = await this.helper.showLoader("Cargando");
-    if (this.correo == ''){
+    if (this.correo === ''){
       await loader.dismiss();
       await this.helper.showAlert("Debe ingresar un correo","Error");
       return;
     }
-    if (this.pass == ''){
+    if (this.pass === ''){
       await loader.dismiss();
       await this.helper.showAlert("Debe ingresar una contraseña","Error");
       return;
     }
-    if (this.passB == ''){
+    if (this.passB === ''){
       await loader.dismiss();
       await this.helper.showAlert("Debe confirmar su contraseña","Error");
       return;
@@ -78,13 +78,13 @@ export class RegistroPage implements OnInit {
       await this.helper.showAlert("Las contraseñas que ha ingresado no son iguales","Error");
       return;
     }
-    if (this.nombre = '') {
+    if (this.nombre === '') {
       await loader.dismiss();
       await this.helper.showAlert("Debe ingresar un nombre","Error");
       return;
       
     }
-    if (this.apellido='') {
+    if (this.apellido ==='') {
       await loader.dismiss();
       await this.helper.showAlert("Debe ingresar un apellido","Error");
       return;
