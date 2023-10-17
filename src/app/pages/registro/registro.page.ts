@@ -25,6 +25,8 @@ export class RegistroPage implements OnInit {
   comunas:Comuna[]=[];
   seleccionR:number = 0;
   seleccionC:number = 0;
+  nombreRegion:string = '';
+  nombreComuna:string = '';
   disComuna:boolean = true;
 
   constructor(private router:Router,
@@ -58,6 +60,17 @@ export class RegistroPage implements OnInit {
 
   async botonReg(){
     const loader = await this.helper.showLoader("Cargando");
+    const regionSelect = this.regiones.find(region => region.id ===this.seleccionR);
+    const comunaSelect = this.comunas.find(comuna => comuna.id === this.seleccionC);
+
+    if (regionSelect && comunaSelect){
+      this.nombreRegion = regionSelect.nombre;
+      this.nombreComuna = comunaSelect?.nombre;
+    }else{
+      await loader.dismiss();
+      await this.helper.showAlert("Debe seleccionar región y comuna correctamente","Error");
+      return;
+    }
     if (this.correo === ''){
       await loader.dismiss();
       await this.helper.showAlert("Debe ingresar un correo","Error");
@@ -94,7 +107,9 @@ export class RegistroPage implements OnInit {
       nombre:this.nombre,
       apellido:this.apellido,
       correo:this.correo,
-      pass:this.pass
+      pass:this.pass,
+      nombreR:this.nombreRegion,
+      nombreC:this.nombreComuna
     }]
 
     try {
