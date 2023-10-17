@@ -22,11 +22,6 @@ export class DetalleAsignaturaPage implements OnInit {
 
   }
 
-  async botonLogout(){
-    var confirm = await this.helper.showConfirm("Confirmar cierre de sesión","Confirmar","Cancelar");
-    if(confirm == true) {
-      this.router.navigateByUrl("login");
-      }
-  }
+ 
 
 }
