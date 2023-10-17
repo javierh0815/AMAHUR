@@ -11,7 +11,8 @@ import { DetalleAsignaturaPage } from '../detalle-asignatura/detalle-asignatura.
 export class ListaAsignaturasPage implements OnInit {
   
 
-  constructor(private router:Router,private helper:HelperService) { }
+  constructor(private router:Router,
+              private helper:HelperService) { }
 
   ngOnInit() {
   }

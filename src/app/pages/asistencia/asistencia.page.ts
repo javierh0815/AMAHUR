@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
+import { DetalleAsignaturaPage } from '../detalle-asignatura/detalle-asignatura.page';
 
 @Component({
   selector: 'app-asistencia',
@@ -24,7 +25,7 @@ export class AsistenciaPage implements OnInit {
   async botonPresente(){
     var confirm= await this.helper.showConfirm("Confirmar su registro como presente","OK","Cancelar");
     if(confirm == true) {
-      this.router.navigateByUrl("detalle-asignatura");
+      this.helper.showModal(DetalleAsignaturaPage);
     }
   }
 

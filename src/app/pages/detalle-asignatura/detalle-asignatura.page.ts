@@ -10,7 +10,9 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class DetalleAsignaturaPage implements OnInit {
 
-  constructor(private router:Router,private helper:HelperService,private modalController:ModalController) { }
+  constructor(private router:Router,
+              private helper:HelperService,
+              private modalController:ModalController) { }
 
   ngOnInit() {
   }
