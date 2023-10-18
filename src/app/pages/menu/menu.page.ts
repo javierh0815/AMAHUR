@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 import type { Animation } from '@ionic/angular';
-import { AnimationController, IonCard } from '@ionic/angular';
+import { AnimationController, IonCard, MenuController } from '@ionic/angular';
 import { Menu } from 'src/app/models/home';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Network } from '@capacitor/network';
@@ -30,13 +30,26 @@ export class MenuPage implements OnInit {
   constructor(private router:Router,
               private helper:HelperService,
               private animationCtrl: AnimationController,
-              private auth: AngularFireAuth
+              private auth: AngularFireAuth,
+              private menuCtrl:MenuController
                ) { }
 
   ngOnInit() {
     this.menuHome();
     this.conexionInternet();
     setTimeout(this.simularCargaInformacion, 2000)
+  }
+
+  menu(){
+    this.menuCtrl.toggle();
+  }
+
+  menuButtonClose(){
+    this.menuCtrl.close();
+  }
+
+  menuButtonUserProfile(){
+    this.router.navigateByUrl('perfil-usuario');
   }
 
   async conexionInternet(){
@@ -73,7 +86,7 @@ export class MenuPage implements OnInit {
   }
 
    async botonLogout(){
-    var confirm = await this.helper.showConfirm("¿Deseas cerrar la sesion?","Confirmar","Cancelar");
+    var confirm = await this.helper.showConfirm("¿Deseas cerrar la sesión?","Confirmar","Cancelar");
     if(confirm == true) {
       await this.auth.signOut();
       this.router.navigateByUrl("login");

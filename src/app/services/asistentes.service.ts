@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
 import { StorageService } from './storage.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { HelperService } from './helper.service';
 
 const keyStorageAsistencia = "asistenciaData";
 
@@ -15,7 +16,8 @@ export class AsistentesService {
   
 
   constructor(private storage:StorageService,
-              private auth:AngularFireAuth ) { }
+              private auth:AngularFireAuth,
+              private helper:HelperService ) { }
 
   async getAsistencia(clave:string):Promise<string | null>{
     const asi = await Preferences.get({key:clave});
@@ -57,7 +59,7 @@ export class AsistentesService {
           
           return;
         }else{
-          presentes.push(i)
+          presentes.push(i);
         }
       }
       this.setAsistencia(keyStorageAsistencia,JSON.stringify(presentes));

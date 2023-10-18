@@ -75,14 +75,14 @@ export class AsistenciaPage implements OnInit {
 
       if (seleccionA){
         await loader.dismiss();
-        console.log(presencia);
+        
         this.asistentes.guardarAsistencia(presencia);
-        await this.helper.showAlert("Asistencia guardada con éxito",seleccionA?.leccion);
+        
         
       }
       else{
         await loader.dismiss();
-        await this.helper.showAlert("No se pudo guardar su asisttencia","Error");
+        await this.helper.showAlert("No se pudo guardar su asistencia","Error");
         return;
       }
       
