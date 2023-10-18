@@ -1,25 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button class="buttons-normal"></ion-back-button>
-    </ion-buttons>
+    
     <ion-title class="header-normal">Asistencia</ion-title>
-    <ion-button class="button-logout" (click)="botonLogout()" slot="end">
-      <ion-icon name="log-out-outline"></ion-icon>
+    <ion-button class="button-logout" (click)="cerrarModal()" slot="end">
+      <ion-icon name="close-circle-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card class="card-asistencia">
-    <ion-list class="list-normal">
-      <ion-item class="item-normal">Asignatura: Programación Móvil</ion-item>
-      <ion-item class="item-normal">Sección: 001D</ion-item>
-      <ion-item class="item-normal">Profesor: Guillermo Villacura</ion-item>
-      <ion-item class="item-normal">Fecha: 08 09 2023</ion-item>
-      <ion-item class="item-normal">Hora: 14:30</ion-item>
-    
-    </ion-list>
-  </ion-card>  
+  <ion-item class="item-normal">
+    <ion-select placeholder="Seleccionar Asignatura" [(ngModel)]="seleccionAsignatura">
+      <ion-select-option *ngFor="let a of datosMalla" [value]="a.asignatura">{{a.asignatura}} - {{a.leccion}}</ion-select-option>
+    </ion-select>
+  </ion-item> 
   <ion-button class="button-normal" (click)="botonPresente()">OK</ion-button>
 </ion-content>
