@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Preferences } from '@capacitor/preferences';
+import { StorageService } from './storage.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 const keyStorageAsistencia = "asistenciaData";
 
@@ -9,10 +10,12 @@ const keyStorageAsistencia = "asistenciaData";
 })
 export class AsistentesService {
 
-  estudiante:any;
+  estudiantes:any;
+  
   
 
-  constructor(private auth:AngularFireAuth) { }
+  constructor(private storage:StorageService,
+              private auth:AngularFireAuth ) { }
 
   async getAsistencia(clave:string):Promise<string | null>{
     const asi = await Preferences.get({key:clave});
@@ -37,19 +40,30 @@ export class AsistentesService {
     }
   }
 
-  async guardarAsistencia(asistencia:any[]){
-    const asistenciaStorage = await this.obtenerAsistencia();
-    var asistenteToken = await this.auth.currentUser;
-    for (const a of asistenciaStorage){
-      if (asistenciaStorage.includes(this.estudiante.filter((e: {correo:string;})=>e.correo==asistenteToken?.email))){
-        return;
+
+  async guardarAsistencia(presentes:any[]){
+    const asistStorage = await this.obtenerAsistencia();
+    this.estudiantes = await this.storage.obtenerUser();
+    const etoken = await this.auth.currentUser;
+    const estudianteLogin = this.estudiantes.find((e: {correo:string; }) => e.correo == etoken?.email);
+    
+    if(estudianteLogin){
+      const emailE = estudianteLogin.correo;
+      let estudiantePresente = false;
+
+      for (const i of asistStorage){
+        if (i.correo === emailE){
+          estudiantePresente = true;
+          
+          return;
+        }else{
+          presentes.push(i)
+        }
       }
-      else{
-        asistencia.push(a);
-      }
+      this.setAsistencia(keyStorageAsistencia,JSON.stringify(presentes));
     }
-    this.setAsistencia(keyStorageAsistencia,JSON.stringify(asistencia))
-  }
+
+ }
 
 
 }

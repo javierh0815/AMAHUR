@@ -18,11 +18,7 @@ export class ListaAsignaturasPage implements OnInit {
 
   ngOnInit() {
   }
-/* 
-  botonSeccion(){
-    this.router.navigateByUrl("detalle-asignatura");
-  } */ 
-  
+
   botonSeccion(){
     this.helper.showModal(DetalleAsignaturaPage);
   }

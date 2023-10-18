@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { AsistentesService } from 'src/app/services/asistentes.service';
 import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class DetalleAsignaturaPage implements OnInit {
 
   constructor(private router:Router,
               private helper:HelperService,
-              private modalController:ModalController) { }
+              private modalController:ModalController,
+              private asistentes:AsistentesService) { }
 
   ngOnInit() {
   }

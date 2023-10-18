@@ -5,6 +5,7 @@ import { DetalleAsignaturaPage } from '../detalle-asignatura/detalle-asignatura.
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ModalController } from '@ionic/angular';
 import { StorageService } from 'src/app/services/storage.service';
+import { AsistentesService } from 'src/app/services/asistentes.service';
 
 @Component({
   selector: 'app-asistencia',
@@ -22,8 +23,7 @@ export class AsistenciaPage implements OnInit {
   leccion:string='';
   sala:string='';
   seccion:string='';
-  correoA:string='';
-  correoEstudiante:string='';
+  correo:string ='';
   usuarioA:any;
   
   
@@ -32,10 +32,11 @@ export class AsistenciaPage implements OnInit {
               private helper:HelperService,
               private auth:AngularFireAuth,
               private modalC:ModalController,
-              private storage:StorageService) { }
+              private storage:StorageService,
+              private asistentes:AsistentesService) { }
 
   ngOnInit() {
-    console.log("malla: ",this.datosMalla);
+    
   }
 
   async botonLogout(){
@@ -47,7 +48,7 @@ export class AsistenciaPage implements OnInit {
   }
 
   async botonPresente(){
-    var confirm= await this.helper.showConfirm("Confirmar su registro como presente","OK","Cancelar");
+    var confirm= await this.helper.showConfirm("¿Confirmar su registro como presente?","OK","Cancelar");
 
     if(confirm == true) {
       const loader = await this.helper.showLoader("Cargando...");
@@ -55,29 +56,39 @@ export class AsistenciaPage implements OnInit {
       this.usuarioA = await this.storage.obtenerUser();
       const estudianteToken = await this.auth.currentUser;
       const usuarioF = this.usuarioA.find((e: {correo:string; }) => e.correo == estudianteToken?.email);
-      this.correoEstudiante = usuarioF.correo;
-
-      if(seleccionA){
-        await loader.dismiss();
-        const nomA = seleccionA.leccion;
-        
-        console.log("a",nomA,"c",this.correoEstudiante);
-      }
+      this.correo=usuarioF.correo;
+      
 
       
+      
       var presencia =  [{
-        asignatura:seleccionA.leccion,
+        asignatura:seleccionA?.asignatura,
         docente:seleccionA?.docente,
         fecha:seleccionA?.fecha,
         hora:seleccionA?.hora,
         leccion:seleccionA?.leccion,
         sala:seleccionA?.sala,
         seccion:seleccionA?.seccion,
-        correo:this.correoEstudiante
+        correo:this.correo
 
       }]
-      console.log(presencia);
+
+      if (seleccionA){
+        await loader.dismiss();
+        console.log(presencia);
+        this.asistentes.guardarAsistencia(presencia);
+        await this.helper.showAlert("Asistencia guardada con éxito",seleccionA?.leccion);
+        
+      }
+      else{
+        await loader.dismiss();
+        await this.helper.showAlert("No se pudo guardar su asisttencia","Error");
+        return;
+      }
       
+        
+      
+    
       
       //this.helper.showModal(DetalleAsignaturaPage);
     }
