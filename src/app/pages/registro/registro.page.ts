@@ -43,7 +43,7 @@ export class RegistroPage implements OnInit {
   async cargarRegion(){
     const req = await this.locationService.getRegion();
     this.regiones = req.data;
-    console.log("REGIONES",this.regiones);
+    
   }
 
   async cargarComuna(){

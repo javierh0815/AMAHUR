@@ -44,21 +44,25 @@ export class LoginPage implements OnInit {
       await loader.dismiss();
       await this.router.navigateByUrl('menu');
     } catch (error:any) {
-      if (error.code=='auth/invalid-email'){
+      if (error.code==='auth/invalid-email'){
         await loader.dismiss();
         await this.helper.showAlert("El correo ingresado no es válido","Error");
       }
-      if (error.code=='auth/weak-password'){
+      if (error.code==='auth/weak-password'){
         await loader.dismiss();
         await this.helper.showAlert("La contraseña no es lo suficientemente fuerte","Error");
       }
-      if (error.code == 'auth/invalid-password'){
+      if (error.code === 'auth/invalid-password'){
         await loader.dismiss();
         await this.helper.showAlert("Contraseña inválida","Error");
       }
-      if (error.code == 'auth/user-not-found'){
+      if (error.code === 'auth/user-not-found'){
         await loader.dismiss();
         await this.helper.showAlert("Usuario no encontrado, debe registrarse","Error");
+      }
+      if (error.code === 'auth/invalid-login-credentials'){
+        await loader.dismiss();
+        await this.helper.showAlert("Credenciales no válidas","Error");
       }
       
     }

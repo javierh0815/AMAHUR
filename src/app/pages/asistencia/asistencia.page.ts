@@ -90,7 +90,7 @@ export class AsistenciaPage implements OnInit {
       
     
       
-      //this.helper.showModal(DetalleAsignaturaPage);
+      this.helper.showModal(DetalleAsignaturaPage);
     }
   }
 
