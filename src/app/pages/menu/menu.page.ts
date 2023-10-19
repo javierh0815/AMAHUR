@@ -6,6 +6,7 @@ import { AnimationController, IonCard, MenuController } from '@ionic/angular';
 import { Menu } from 'src/app/models/home';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Network } from '@capacitor/network';
+import { StorageService } from 'src/app/services/storage.service';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class MenuPage implements OnInit {
 
   menuArray:Menu[]=[];
 
+  usuarioA:any;
   
 
 
@@ -31,7 +33,8 @@ export class MenuPage implements OnInit {
               private helper:HelperService,
               private animationCtrl: AnimationController,
               private auth: AngularFireAuth,
-              private menuCtrl:MenuController
+              private menuCtrl:MenuController,
+              private storage:StorageService
                ) { }
 
   ngOnInit() {
@@ -48,8 +51,13 @@ export class MenuPage implements OnInit {
     this.menuCtrl.close();
   }
 
-  menuButtonUserProfile(){
-    this.router.navigateByUrl('perfil-usuario');
+  async menuButtonUserProfile(){
+    this.usuarioA = await this.storage.obtenerUser();
+    const estudianteToken = await this.auth.currentUser;
+    const usuarioF = this.usuarioA.find((e: {correo:string; }) => e.correo == estudianteToken?.email);
+    const param = usuarioF.nombre;
+
+    this.router.navigateByUrl('perfil-usuario/' + param);
   }
 
   async conexionInternet(){

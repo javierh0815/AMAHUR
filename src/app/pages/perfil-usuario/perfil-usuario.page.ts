@@ -13,15 +13,16 @@ export class PerfilUsuarioPage implements OnInit {
 
   estudiante:any;
   estudianteR:any;
-  
+  parametroUsuario:string | undefined;
 
-  constructor(private activatedRoute:ActivatedRoute,
+  constructor(private activatedRouter:ActivatedRoute,
               private auth:AngularFireAuth,
               private router:Router,
               private helper:HelperService,
               private storage:StorageService) { }
 
   ngOnInit() {
+    this.parametroUsuario= this.activatedRouter.snapshot.params['nombreuser'];
     this.infoUsuario();
   }
 
