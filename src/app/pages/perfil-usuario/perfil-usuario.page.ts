@@ -13,6 +13,7 @@ export class PerfilUsuarioPage implements OnInit {
 
   estudiante:any;
   estudianteR:any;
+  
 
   constructor(private activatedRoute:ActivatedRoute,
               private auth:AngularFireAuth,
@@ -27,7 +28,10 @@ export class PerfilUsuarioPage implements OnInit {
   async infoUsuario(){
     this.estudiante = await this.storage.obtenerUser();
     var tokenEstudiante = await this.auth.currentUser;
-    this.estudianteR = this.estudiante.filter((e: {correo:string; }) => e.correo == tokenEstudiante?.email)
+    this.estudianteR = this.estudiante.filter((e: {correo:string; }) => e.correo == tokenEstudiante?.email);
+    
+
+
   }
 
   async botonLogout(){

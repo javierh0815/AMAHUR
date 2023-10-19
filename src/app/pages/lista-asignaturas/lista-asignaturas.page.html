@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button class="buttons-normal"></ion-back-button>
     </ion-buttons>
-    <ion-title class="header-normal">Asignaturas Por Sección</ion-title>
+    <ion-title class="header-normal">Asignaturas Con Asistencias</ion-title>
     <ion-button class="button-logout" (click)="botonLogout()" slot="end">
       <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
@@ -11,6 +11,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  
+    <ion-card>
+      <ion-card-content>
+        <ion-list class="list-normal" *ngFor="let a of asignaturaA">
+          <ion-item class="item-normal">
+            <ion-label>Curso: {{ a.asignatura }} - {{ a.leccion }}, Correo del estudiante: {{ a.correo }}</ion-label>
+          </ion-item>
+        
+        
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
 
 </ion-content>

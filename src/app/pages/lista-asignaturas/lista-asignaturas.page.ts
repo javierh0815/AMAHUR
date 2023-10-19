@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
-import { DetalleAsignaturaPage } from '../detalle-asignatura/detalle-asignatura.page';
+
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AsistentesService } from 'src/app/services/asistentes.service';
 
@@ -12,7 +12,7 @@ import { AsistentesService } from 'src/app/services/asistentes.service';
 })
 export class ListaAsignaturasPage implements OnInit {
   
- 
+  asignaturaA: any[]=[];
 
   constructor(private router:Router,
               private helper:HelperService,
@@ -20,14 +20,21 @@ export class ListaAsignaturasPage implements OnInit {
               private asistencia:AsistentesService) { }
 
   ngOnInit() {
-    
-  }
-
-  botonSeccion(){
-    this.helper.showModal(DetalleAsignaturaPage);
+    this.informacionAsignaturas();
   }
 
  
+
+  async informacionAsignaturas(){
+    const asignaturasAsisten = await this.asistencia.obtenerAsistencia();
+
+    if(asignaturasAsisten){
+      this.asignaturaA = asignaturasAsisten;
+      
+    }else{
+      return;
+    }
+  }
 
 
   async botonLogout(){
