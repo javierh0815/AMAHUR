@@ -41,7 +41,7 @@ export class DetalleAsignaturaPage implements OnInit {
 
     if (usuarioF){
       this.asisReg.push(usuarioF);
-      console.log(this.asisReg);
+      
       
     }
       

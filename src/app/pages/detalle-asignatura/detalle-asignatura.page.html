@@ -16,7 +16,16 @@
 
   <ion-card class="card-normal">
 
-    
+    <ion-card class="card-menu" *ngFor="let a of asisReg">
+      <ion-card-header>
+        <ion-card-title>Asistencia Actual</ion-card-title>
+        <ion-card-subtitle style="color:white;">Correo del estudiante: {{a.correo}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{a.asignatura}} - {{a.leccion}}
+        Docente: {{a.docente}}
+      </ion-card-content>
+    </ion-card>
 
 
   </ion-card>
