@@ -49,13 +49,17 @@ export class AsistenciaPage implements OnInit {
     var confirm= await this.helper.showConfirm("¿Confirmar su registro como presente?","OK","Cancelar");
 
     if(confirm == true) {
-      //const loader = await this.helper.showLoader("Cargando...");
-      await this.asistentes.guardarAsistencia(this.datosMalla);
+      const datosAsiste = this.datosMalla;
+      await this.asistentes.guardarAsistencia(datosAsiste);
+
+      const informacionParametro = {personaPresente:datosAsiste}
+      await this.helper.showModal(DetalleAsignaturaPage,informacionParametro);
       
       
-      
+      }else{
+        await this.helper.showAlert("No se puede guardar la asistencia","Error");
       }
-      await this.helper.showModal(DetalleAsignaturaPage);
+      
     }
   
 

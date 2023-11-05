@@ -17,8 +17,8 @@ export class DetalleAsignaturaPage implements OnInit {
   
   
   
-  usuarioAsistente:any;
-  asisReg:DatosMalla[]=[];
+  @Input() personaPresente:DatosMalla[]=[];
+  asisReg:any[]=[];
   
   
   
@@ -36,6 +36,11 @@ export class DetalleAsignaturaPage implements OnInit {
 
   async mostrarInfo(){
     
+    const datosDetalle = this.personaPresente;
+    
+    if (datosDetalle){
+      this.asisReg.push(datosDetalle);
+    }
       
       
       
