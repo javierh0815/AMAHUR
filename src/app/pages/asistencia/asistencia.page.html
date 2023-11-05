@@ -9,10 +9,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item class="item-normal">
-    <ion-select placeholder="Seleccionar Asignatura" [(ngModel)]="seleccionAsignatura">
-      <ion-select-option *ngFor="let a of datosMalla" [value]="a.asignatura">{{a.asignatura}} - {{a.leccion}}</ion-select-option>
-    </ion-select>
-  </ion-item> 
+  
+  
   <ion-button class="button-normal" (click)="botonPresente()">OK</ion-button>
 </ion-content>
