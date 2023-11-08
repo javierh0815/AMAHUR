@@ -52,6 +52,7 @@ ion-card h3{
     padding: 4px;
     display: flex;
     flex-direction: row;
+    font-family: bodyFont;
     --background:#AC8BEE;
     --background-hover: #573D7F;
     --background-activated: #573D7F;
@@ -104,6 +105,7 @@ ion-card h3{
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
+    font-family: bodyFont;
     --ion-item-background: #46325D;
     --background-hover: #573D7F;
     --background-activated: #573D7F;
@@ -137,7 +139,14 @@ ion-card h3{
     padding-right: 10px;
 }
 
+@font-face {
+    font-family: bodyFont;
+    src: url(assets/fonts/Sono-Regular.ttf);
+}
 
-
+@font-face {
+    font-family: titleFont;
+    src: url(assets/fonts/Sono-Bold.ttf);
+}
 
 
