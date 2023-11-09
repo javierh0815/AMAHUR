@@ -77,10 +77,12 @@ ion-card h3{
 
 .item-normal{
     --ion-item-background: #fff;
+    font-family: bodyFont;
 }
 
 .card-normal{
     background-color: white;
+    font-family: bodyFont;
     --color:black;
 }
 
