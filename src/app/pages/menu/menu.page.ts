@@ -63,9 +63,9 @@ export class MenuPage implements OnInit {
   async conexionInternet(){
     const status = await Network.getStatus();
     if (status.connected){
-      this.helper.showToast("Estado de la Conexion: Conectado!");
+      this.helper.showToast("Estado de la Conexion: Conectado");
       }else{
-      this.helper.showToast("Estado de la Conexion: Desconectado...")  
+      this.helper.showToast("Estado de la Conexion: Desconectado")  
       }
   }
 
