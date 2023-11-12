@@ -5,10 +5,7 @@ import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/comp
 const redireccionLogin = () => redirectUnauthorizedTo(['/login']);
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+  
   {
     path: '',
     redirectTo: 'login',
