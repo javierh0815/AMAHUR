@@ -4,7 +4,6 @@ import { HelperService } from 'src/app/services/helper.service';
 import { DetalleAsignaturaPage } from '../detalle-asignatura/detalle-asignatura.page';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ModalController } from '@ionic/angular';
-import { StorageService } from 'src/app/services/storage.service';
 import { AsistentesService } from 'src/app/services/asistentes.service';
 import { DatosMalla } from 'src/app/models/datosMalla';
 
@@ -30,7 +29,6 @@ export class AsistenciaPage implements OnInit {
               private helper:HelperService,
               private auth:AngularFireAuth,
               private modalC:ModalController,
-              private storage:StorageService,
               private asistentes:AsistentesService) { }
 
   ngOnInit() {

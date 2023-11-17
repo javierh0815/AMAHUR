@@ -1,11 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { DatosMalla } from 'src/app/models/datosMalla';
-import { AsistentesService } from 'src/app/services/asistentes.service';
-import { HelperService } from 'src/app/services/helper.service';
-import { StorageService } from 'src/app/services/storage.service';
+
 
 @Component({
   selector: 'app-detalle-asignatura',
@@ -23,12 +19,9 @@ export class DetalleAsignaturaPage implements OnInit {
   
   
  
-  constructor(private router:Router,
-              private helper:HelperService,
-              private modalController:ModalController,
-              private asistentes:AsistentesService,
-              private storage:StorageService,
-              private auth:AngularFireAuth) { }
+  constructor(
+              private modalController:ModalController
+              ) { }
 
   ngOnInit() {
     this.mostrarInfo();
