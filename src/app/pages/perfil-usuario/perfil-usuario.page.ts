@@ -14,6 +14,7 @@ export class PerfilUsuarioPage implements OnInit {
   estudiante:any;
   estudianteR:any;
   parametroUsuario:string | undefined;
+  
 
   constructor(private activatedRouter:ActivatedRoute,
               private auth:AngularFireAuth,
