@@ -18,4 +18,13 @@ describe('AsistentesService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('prueba unitaria solicitada', () => {
+    const numbers=[1,2,3,4,5,6]
+    const select=3;
+
+    if (select in numbers){
+      expect(service).toBeTruthy();
+    }
+  });
 });

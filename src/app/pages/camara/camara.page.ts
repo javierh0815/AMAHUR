@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 import { AsistenciaPage } from '../asistencia/asistencia.page';
 import { BarcodeScanner } from 'capacitor-barcode-scanner';
-import { DatosMalla } from 'src/app/models/datosMalla';
 import { StorageService } from 'src/app/services/storage.service';
 
 
