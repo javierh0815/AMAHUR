@@ -5,6 +5,7 @@ import { HelperService } from 'src/app/services/helper.service';
 import { AsistenciaPage } from '../asistencia/asistencia.page';
 import { BarcodeScanner } from 'capacitor-barcode-scanner';
 import { StorageService } from 'src/app/services/storage.service';
+import { DatosMalla } from 'src/app/models/datosMalla';
 
 
 @Component({
@@ -64,7 +65,7 @@ export class CamaraPage implements OnInit {
 
 
       const infoCamara = {datosMalla:infoClase};
-
+ 
 
 
       this.helper.showModal(AsistenciaPage,infoCamara);

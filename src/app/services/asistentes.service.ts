@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
 import { StorageService } from './storage.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { DatosMalla } from '../models/datosMalla';
 
 
 const keyStorageAsistencia = "asistenciaData";
@@ -40,6 +41,7 @@ export class AsistentesService {
       return [];
     }
   }
+
 
 
   async guardarAsistencia(presentes:any[]){

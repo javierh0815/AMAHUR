@@ -32,7 +32,8 @@ export class AsistenciaPage implements OnInit {
               private asistentes:AsistentesService) { }
 
   ngOnInit() {
-    console.log("Propiedades recibidas",this.datosMalla);
+    const convertido = JSON.stringify(this.datosMalla);
+    console.log("Propiedades recibidas",convertido);
   }
 
   async botonLogout(){

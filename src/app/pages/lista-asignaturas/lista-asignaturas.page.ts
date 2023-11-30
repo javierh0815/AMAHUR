@@ -26,13 +26,16 @@ export class ListaAsignaturasPage implements OnInit {
 
   async informacionAsignaturas(){
     const asignaturasAsisten = await this.asistencia.obtenerAsistencia();
-
-    if(asignaturasAsisten){
-      this.asignaturaA = asignaturasAsisten;
+  
+    if(asignaturasAsisten && typeof asignaturasAsisten === 'object'){
+      
+      this.asignaturaA = [asignaturasAsisten];
       
     }else{
       return;
-    }
+    } 
+
+   
   }
 
 
