@@ -27,10 +27,12 @@
 
 :root {
 	--ion-toolbar-background: #46325D;
+    --ion-background-color: #EBE0FF;
 }
 
 .header-normal{
     background-color: #46325D;
+    font-family: titleFont;
     --color: white;
     --min-height: 80px;
     --padding-top: 20px;
@@ -71,6 +73,7 @@
 .item-normal{
     --ion-item-background: #fff;
     font-family: bodyFont;
+    --color:black;
 }
 
 .card-normal{
@@ -81,6 +84,7 @@
 
 .list-normal{
     background-color: white;
+    font-family: bodyFont;
     --color:black;
     
 }
